@@ -5,6 +5,7 @@ import { getCurrentWeatherInsight, getForecastWeatherInsight, getWeatherQuestion
 import { listFavorites, removeFavorite, resolveFavorite, saveFavorite } from "./favorites.js";
 import { parseIsoDate, resolveWhenToDate } from "./date-utils.js";
 const LABEL_WIDTH = 18;
+const DEFAULT_PUBLIC_AI_PROXY_URL = "https://weather-cli-proxy.phuoc-anonydev2k3.workers.dev";
 const WEATHER_CODE_LABELS = {
     0: "Clear sky",
     1: "Mainly clear",
@@ -42,7 +43,7 @@ function getAiRuntimeOptions() {
     const apiBaseUrl = process.env.WEATHER_API_BASE_URL?.trim();
     const apiToken = process.env.WEATHER_API_TOKEN?.trim();
     return {
-        apiBaseUrl: apiBaseUrl && apiBaseUrl.length > 0 ? apiBaseUrl : undefined,
+        apiBaseUrl: apiBaseUrl && apiBaseUrl.length > 0 ? apiBaseUrl : DEFAULT_PUBLIC_AI_PROXY_URL,
         apiToken: apiToken && apiToken.length > 0 ? apiToken : undefined
     };
 }
