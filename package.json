@@ -1,5 +1,5 @@
 {
-    "name": "weather-cli-phuoc",
+    "name": "@anonydev3/weather-cli",
     "version": "1.0.0",
     "description": "Node.js CLI app to check weather by location",
     "type": "module",
