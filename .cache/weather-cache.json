@@ -1,0 +1,167 @@
+{
+  "entries": {
+    "geocode::hanoi": {
+      "savedAt": 1773680024678,
+      "value": {
+        "id": 1581130,
+        "name": "Hanoi",
+        "latitude": 21.0245,
+        "longitude": 105.84117,
+        "elevation": 10,
+        "feature_code": "PPLC",
+        "country_code": "VN",
+        "admin1_id": 1581129,
+        "timezone": "Asia/Bangkok",
+        "population": 8053663,
+        "country_id": 1562822,
+        "country": "Vietnam",
+        "admin1": "Hanoi"
+      }
+    },
+    "desc-current::hanoi, hanoi, vietnam::2::metric": {
+      "savedAt": 1773680029682,
+      "value": "Partly cloudy"
+    },
+    "desc-forecast::hanoi, hanoi, vietnam::metric::2026-03-16,2026-03-17,2026-03-18::3,3,3": {
+      "savedAt": 1773680035452,
+      "value": [
+        "Overcast with light rain",
+        "Warm and overcast",
+        "Warm and overcast"
+      ]
+    },
+    "geocode::quang binh": {
+      "savedAt": 1773680084827,
+      "value": {
+        "id": 1592440,
+        "name": "Quang Bình",
+        "latitude": 10.12824,
+        "longitude": 106.15898,
+        "elevation": 5,
+        "feature_code": "PPL",
+        "country_code": "VN",
+        "admin1_id": 1559977,
+        "admin2_id": 1904910,
+        "timezone": "Asia/Ho_Chi_Minh",
+        "country_id": 1562822,
+        "country": "Vietnam",
+        "admin1": "Vĩnh Long Province",
+        "admin2": "Vũng Liêm District"
+      }
+    },
+    "current::10.12824::106.15898::metric": {
+      "savedAt": 1773681078628,
+      "value": {
+        "current": {
+          "time": "2026-03-17T00:00",
+          "interval": 900,
+          "temperature_2m": 24.8,
+          "relative_humidity_2m": 82,
+          "apparent_temperature": 27.4,
+          "is_day": 0,
+          "precipitation": 0,
+          "wind_speed_10m": 13.7,
+          "cloud_cover": 70,
+          "visibility": 24140,
+          "surface_pressure": 1011.4,
+          "weather_code": 2
+        }
+      }
+    },
+    "desc-current::quang bình, vĩnh long province, vietnam::2::metric": {
+      "savedAt": 1773680478672,
+      "value": "Partly cloudy"
+    },
+    "forecast3::10.12824::106.15898::metric": {
+      "savedAt": 1773680091735,
+      "value": {
+        "daily": {
+          "time": [
+            "2026-03-16",
+            "2026-03-17",
+            "2026-03-18"
+          ],
+          "weather_code": [
+            3,
+            3,
+            3
+          ],
+          "temperature_2m_max": [
+            32.6,
+            32.8,
+            33.5
+          ],
+          "temperature_2m_min": [
+            24.5,
+            23.8,
+            23.2
+          ],
+          "precipitation_sum": [
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "desc-forecast::quang bình, vĩnh long province, vietnam::metric::2026-03-16,2026-03-17,2026-03-18::3,3,3": {
+      "savedAt": 1773680481702,
+      "value": [
+        "Overcast and warm",
+        "Overcast and warm",
+        "Overcast and warm"
+      ]
+    },
+    "current::21.0245::105.84117::metric": {
+      "savedAt": 1773683541952,
+      "value": {
+        "current": {
+          "time": "2026-03-17T00:45",
+          "interval": 900,
+          "temperature_2m": 20.4,
+          "relative_humidity_2m": 94,
+          "apparent_temperature": 22.3,
+          "is_day": 0,
+          "precipitation": 0,
+          "wind_speed_10m": 11.5,
+          "cloud_cover": 45,
+          "visibility": 24140,
+          "surface_pressure": 1012.6,
+          "weather_code": 2
+        }
+      }
+    },
+    "forecast3::21.0245::105.84117::metric": {
+      "savedAt": 1773684133822,
+      "value": {
+        "daily": {
+          "time": [
+            "2026-03-17",
+            "2026-03-18",
+            "2026-03-19"
+          ],
+          "weather_code": [
+            3,
+            3,
+            3
+          ],
+          "temperature_2m_max": [
+            28.5,
+            28.2,
+            30
+          ],
+          "temperature_2m_min": [
+            20,
+            19.8,
+            20.5
+          ],
+          "precipitation_sum": [
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    }
+  }
+}

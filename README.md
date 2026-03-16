@@ -36,6 +36,61 @@ GEMINI_MODEL=gemini-2.0-flash
 
 If no Gemini API key is provided, the app falls back to built-in weather descriptions.
 
+## Proxy Mode (Users Run Immediately)
+
+If you want users to run without providing their own Gemini key, host the included proxy server with your key.
+
+1. Start proxy server:
+
+```bash
+pnpm proxy:start
+```
+
+2. Configure CLI to use proxy:
+
+```bash
+# .env
+WEATHER_API_BASE_URL=http://localhost:8787
+# Optional token if you set WEATHER_PROXY_TOKEN on server
+WEATHER_API_TOKEN=your_proxy_token
+```
+
+When `WEATHER_API_BASE_URL` is set, CLI uses proxy first and falls back to local Gemini key only if available.
+
+### Cloudflare Worker Deploy
+
+Worker files are included in `cloudflare-worker/`.
+
+1. Install and login:
+
+```bash
+npm i -g wrangler
+wrangler login
+```
+
+2. Deploy worker:
+
+```bash
+cd cloudflare-worker
+wrangler secret put GEMINI_API_KEY
+# Optional extra protection token
+wrangler secret put WEATHER_PROXY_TOKEN
+wrangler deploy
+```
+
+3. Configure CLI client `.env`:
+
+```bash
+WEATHER_API_BASE_URL=https://weather-cli-proxy.<your-subdomain>.workers.dev
+WEATHER_API_TOKEN=<same WEATHER_PROXY_TOKEN value>
+```
+
+4. Test:
+
+```bash
+pnpm start -- "hanoi" --ask "Can I run today?"
+```
+
 ## Usage
 
 Build and run:

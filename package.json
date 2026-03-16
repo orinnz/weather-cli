@@ -1,0 +1,57 @@
+{
+    "name": "weather-cli-phuoc",
+    "version": "1.0.0",
+    "description": "Node.js CLI app to check weather by location",
+    "type": "module",
+    "main": "dist/index.js",
+    "bin": {
+        "cli-weather": "dist/cli.js"
+    },
+    "scripts": {
+        "build": "tsc",
+        "start": "tsc && node dist/cli.js",
+        "dev": "tsc --watch",
+        "check": "tsc --noEmit",
+        "test": "tsc && node --test dist/**/*.test.js",
+        "proxy:start": "node server/proxy-server.js",
+        "prepublishOnly": "pnpm run check && pnpm run build"
+    },
+    "files": [
+        "dist/cli.js",
+        "dist/index.js",
+        "dist/weather.js",
+        "dist/weather-descriptions.js",
+        "dist/geocode.js",
+        "dist/cache.js",
+        "dist/date-utils.js",
+        "dist/favorites.js",
+        "README.md",
+        "LICENSE"
+    ],
+    "keywords": [
+        "cli",
+        "weather",
+        "nodejs"
+    ],
+    "author": "Phuoc",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/your-username/weather-cli-phuoc.git"
+    },
+    "homepage": "https://github.com/your-username/weather-cli-phuoc#readme",
+    "bugs": {
+        "url": "https://github.com/your-username/weather-cli-phuoc/issues"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "dependencies": {
+        "@google/genai": "^0.10.0",
+        "dotenv": "^16.4.7"
+    },
+    "devDependencies": {
+        "@types/node": "^22.14.1",
+        "typescript": "^5.8.2"
+    }
+}

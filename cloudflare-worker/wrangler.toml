@@ -1,0 +1,7 @@
+name = "weather-cli-proxy"
+main = "src/worker.js"
+compatibility_date = "2025-03-01"
+
+[vars]
+# Optional: lock requests with a shared token
+# WEATHER_PROXY_TOKEN = "set-in-dashboard-or-via-wrangler-secret"
