@@ -34,6 +34,7 @@ type AiRuntimeOptions = {
 };
 
 const LABEL_WIDTH = 18;
+const DEFAULT_PUBLIC_AI_PROXY_URL = "https://weather-cli-proxy.phuoc-anonydev2k3.workers.dev";
 
 const WEATHER_CODE_LABELS: Record<number, string> = {
   0: "Clear sky",
@@ -78,7 +79,7 @@ function getAiRuntimeOptions(): AiRuntimeOptions {
   const apiToken = process.env.WEATHER_API_TOKEN?.trim();
 
   return {
-    apiBaseUrl: apiBaseUrl && apiBaseUrl.length > 0 ? apiBaseUrl : undefined,
+    apiBaseUrl: apiBaseUrl && apiBaseUrl.length > 0 ? apiBaseUrl : DEFAULT_PUBLIC_AI_PROXY_URL,
     apiToken: apiToken && apiToken.length > 0 ? apiToken : undefined
   };
 }

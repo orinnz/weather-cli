@@ -36,6 +36,8 @@ GEMINI_MODEL=gemini-2.0-flash
 
 If no Gemini API key is provided, the app falls back to built-in weather descriptions.
 
+By default, the published CLI uses a built-in hosted proxy URL, so users can install and run without setting any env variables.
+
 ## Proxy Mode (Users Run Immediately)
 
 If you want users to run without providing their own Gemini key, host the included proxy server with your key.
@@ -46,7 +48,7 @@ If you want users to run without providing their own Gemini key, host the includ
 pnpm proxy:start
 ```
 
-2. Configure CLI to use proxy:
+2. Configure CLI to use custom proxy (optional override):
 
 ```bash
 # .env
@@ -55,7 +57,7 @@ WEATHER_API_BASE_URL=http://localhost:8787
 WEATHER_API_TOKEN=your_proxy_token
 ```
 
-When `WEATHER_API_BASE_URL` is set, CLI uses proxy first and falls back to local Gemini key only if available.
+When `WEATHER_API_BASE_URL` is set, CLI uses that proxy. Otherwise it uses the built-in default hosted proxy URL.
 
 ### Cloudflare Worker Deploy
 
