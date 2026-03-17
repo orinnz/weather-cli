@@ -75,7 +75,7 @@ function row(label: string, value: string, theme: Theme): void {
 }
 
 function getAiRuntimeOptions(): AiRuntimeOptions {
-  const apiBaseUrl = process.env.WEATHER_API_BASE_URL?.trim();
+  const apiBaseUrl = process.env.WEATHER_API_BASE_URL?.trim() || "https://weather-cli-proxy.phuoc-anonydev2k3.workers.dev";
   const apiToken = process.env.WEATHER_API_TOKEN?.trim();
 
   return {

@@ -40,7 +40,7 @@ function row(label, value, theme) {
     console.log(`${theme.label(padded)} ${value}`);
 }
 function getAiRuntimeOptions() {
-    const apiBaseUrl = process.env.WEATHER_API_BASE_URL?.trim();
+    const apiBaseUrl = process.env.WEATHER_API_BASE_URL?.trim() || "https://weather-cli-proxy.phuoc-anonydev2k3.workers.dev";
     const apiToken = process.env.WEATHER_API_TOKEN?.trim();
     return {
         apiBaseUrl: apiBaseUrl && apiBaseUrl.length > 0 ? apiBaseUrl : DEFAULT_PUBLIC_AI_PROXY_URL,
