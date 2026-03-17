@@ -4,7 +4,7 @@ A beautiful, AI-powered weather CLI with smart fallbacks. Get instant weather in
 
 ![npm](https://img.shields.io/npm/v/@anonydev3/weather-cli)
 ![npm](https://img.shields.io/npm/dm/@anonydev3/weather-cli)
-![GitHub](https://img.shields.io/github/license/orinnz/weather-cli-phuoc)
+![GitHub](https://img.shields.io/github/license/orinnz/weather-cli)
 
 ## ⚡ Quick Start
 
@@ -141,8 +141,8 @@ Source:            AI
 
 **Clone and install:**
 ```bash
-git clone https://github.com/orinnz/weather-cli-phuoc.git
-cd weather-cli-phuoc
+git clone https://github.com/orinnz/weather-cli.git
+cd weather-cli
 pnpm install
 ```
 
@@ -214,4 +214,4 @@ WEATHER_API_BASE_URL=https://weather-cli-proxy.<your-subdomain>.workers.dev
 
 ## License
 
-MIT © [Phuoc](https://github.com/orinnz)
+MIT © [Phuoc](https://github.com/orinnz/weather-cli)

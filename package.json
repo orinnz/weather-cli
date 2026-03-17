@@ -37,11 +37,11 @@
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/orinnz/weather-cli-phuoc.git"
+        "url": "https://github.com/orinnz/weather-cli.git"
     },
-    "homepage": "https://github.com/orinnz/weather-cli-phuoc#readme",
+    "homepage": "https://github.com/orinnz/weather-cli#readme",
     "bugs": {
-        "url": "https://github.com/orinnz/weather-cli-phuoc/issues"
+        "url": "https://github.com/orinnz/weather-cli/issues"
     },
     "publishConfig": {
         "access": "public"
