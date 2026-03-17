@@ -33,7 +33,8 @@ function getApiKey() {
     return process.env.GEMINI_API_KEY ?? process.env.GOOGLE_API_KEY ?? null;
 }
 function getModelName() {
-    return process.env.GEMINI_MODEL ?? "gemini-2.0-flash";
+    // Use gemini-2.5-flash - latest stable model
+    return process.env.GEMINI_MODEL ?? "gemini-2.5-flash";
 }
 function fallbackDescription(code) {
     return FALLBACK_DESCRIPTIONS[code] ?? "Unknown weather";
@@ -103,9 +104,18 @@ async function callGemini(prompt, runtime) {
                     return data.text.trim();
                 }
             }
+            else {
+                const errorData = await response.json().catch(() => ({}));
+                // Only log non-quota errors to reduce noise
+                const errorMessage = errorData.error || response.statusText;
+                if (!String(errorMessage).includes("quota")) {
+                    console.error(`[AI Proxy Error ${response.status}]:`, errorMessage);
+                }
+            }
         }
-        catch {
-            // Fall through to direct Gemini mode.
+        catch (error) {
+            const message = error instanceof Error ? error.message : "Unknown error";
+            console.error(`[AI Proxy Fetch Error]:`, message);
         }
     }
     const apiKey = getApiKey();
@@ -123,13 +133,19 @@ async function callGemini(prompt, runtime) {
             model: getModelName(),
             contents: prompt
         });
+        // Type-safe response handling
         const textValue = response.text;
         if (!textValue || typeof textValue !== "string") {
             return null;
         }
         return textValue.trim();
     }
-    catch {
+    catch (error) {
+        const message = error instanceof Error ? error.message : "Unknown error";
+        // Only log if it's not a "key not found" or "quota exceeded" error
+        if (!message.includes("API Key not found") && !message.includes("quota") && !message.includes("429")) {
+            console.error(`[Gemini API Error]:`, message);
+        }
         return null;
     }
 }

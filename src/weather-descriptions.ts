@@ -95,7 +95,8 @@ function getApiKey(): string | null {
 }
 
 function getModelName(): string {
-  return process.env.GEMINI_MODEL ?? "gemini-2.0-flash";
+  // Use gemini-2.5-flash - latest stable model
+  return process.env.GEMINI_MODEL ?? "gemini-2.5-flash";
 }
 
 function fallbackDescription(code: number): string {
@@ -181,9 +182,17 @@ async function callGemini(prompt: string, runtime?: AiRuntimeOptions): Promise<s
         if (typeof data.text === "string" && data.text.trim().length > 0) {
           return data.text.trim();
         }
+      } else {
+        const errorData = await response.json().catch(() => ({}));
+        // Only log non-quota errors to reduce noise
+        const errorMessage = errorData.error || response.statusText;
+        if (!String(errorMessage).includes("quota")) {
+          console.error(`[AI Proxy Error ${response.status}]:`, errorMessage);
+        }
       }
-    } catch {
-      // Fall through to direct Gemini mode.
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Unknown error";
+      console.error(`[AI Proxy Fetch Error]:`, message);
     }
   }
 
@@ -195,7 +204,15 @@ async function callGemini(prompt: string, runtime?: AiRuntimeOptions): Promise<s
 
   try {
     const mod = await import("@google/genai");
-    const GoogleGenAI = (mod as { GoogleGenAI?: new (opts: { apiKey: string }) => any }).GoogleGenAI;
+    // Type-safe access to GoogleGenAI class
+    type GenAIModule = {
+      GoogleGenAI?: new (opts: { apiKey: string }) => {
+        models: {
+          generateContent: (opts: { model: string; contents: string }) => Promise<{ text?: string }>;
+        };
+      };
+    };
+    const GoogleGenAI = (mod as GenAIModule).GoogleGenAI;
     if (!GoogleGenAI) {
       return null;
     }
@@ -206,13 +223,19 @@ async function callGemini(prompt: string, runtime?: AiRuntimeOptions): Promise<s
       contents: prompt
     });
 
-    const textValue = (response as { text?: string }).text;
+    // Type-safe response handling
+    const textValue: string | undefined = response.text;
     if (!textValue || typeof textValue !== "string") {
       return null;
     }
 
     return textValue.trim();
-  } catch {
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Unknown error";
+    // Only log if it's not a "key not found" or "quota exceeded" error
+    if (!message.includes("API Key not found") && !message.includes("quota") && !message.includes("429")) {
+      console.error(`[Gemini API Error]:`, message);
+    }
     return null;
   }
 }

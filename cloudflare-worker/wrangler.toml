@@ -1,7 +1,13 @@
 name = "weather-cli-proxy"
 main = "src/worker.js"
-compatibility_date = "2025-03-01"
+compatibility_date = "2026-03-17"
+compatibility_flags = ["nodejs_compat"]
 
 [vars]
 # Optional: lock requests with a shared token
 # WEATHER_PROXY_TOKEN = "set-in-dashboard-or-via-wrangler-secret"
+
+# Enable structured logging for production debugging
+[observability]
+enabled = true
+head_sampling_rate = 1.0

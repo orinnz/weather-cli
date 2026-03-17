@@ -112,8 +112,27 @@
         "Overcast and warm"
       ]
     },
+    "current::21.0245::105.84117::metric": {
+      "savedAt": 1773720787756,
+      "value": {
+        "current": {
+          "time": "2026-03-17T11:00",
+          "interval": 900,
+          "temperature_2m": 26.5,
+          "relative_humidity_2m": 62,
+          "apparent_temperature": 27.8,
+          "is_day": 1,
+          "precipitation": 0,
+          "wind_speed_10m": 16.7,
+          "cloud_cover": 88,
+          "visibility": 24140,
+          "surface_pressure": 1014,
+          "weather_code": 3
+        }
+      }
+    },
     "forecast3::21.0245::105.84117::metric": {
-      "savedAt": 1773684133822,
+      "savedAt": 1773720851565,
       "value": {
         "daily": {
           "time": [
@@ -127,39 +146,20 @@
             3
           ],
           "temperature_2m_max": [
+            28,
             28.5,
-            28.2,
-            30
+            29.1
           ],
           "temperature_2m_min": [
             20,
-            19.8,
-            20.5
+            19.9,
+            20.8
           ],
           "precipitation_sum": [
             0,
             0,
             0
           ]
-        }
-      }
-    },
-    "current::21.0245::105.84117::metric": {
-      "savedAt": 1773685124659,
-      "value": {
-        "current": {
-          "time": "2026-03-17T01:15",
-          "interval": 900,
-          "temperature_2m": 20.3,
-          "relative_humidity_2m": 94,
-          "apparent_temperature": 22.1,
-          "is_day": 0,
-          "precipitation": 0,
-          "wind_speed_10m": 11.5,
-          "cloud_cover": 59,
-          "visibility": 24140,
-          "surface_pressure": 1012.2,
-          "weather_code": 2
         }
       }
     }

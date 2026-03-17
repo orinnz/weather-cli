@@ -37,11 +37,11 @@
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/your-username/weather-cli-phuoc.git"
+        "url": "https://github.com/anonydev3/weather-cli-phuoc.git"
     },
-    "homepage": "https://github.com/your-username/weather-cli-phuoc#readme",
+    "homepage": "https://github.com/anonydev3/weather-cli-phuoc#readme",
     "bugs": {
-        "url": "https://github.com/your-username/weather-cli-phuoc/issues"
+        "url": "https://github.com/anonydev3/weather-cli-phuoc/issues"
     },
     "publishConfig": {
         "access": "public"

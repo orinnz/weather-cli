@@ -18,7 +18,19 @@ function getModelFromPayload(payload, env) {
   if (env.GEMINI_MODEL && env.GEMINI_MODEL.trim().length > 0) {
     return env.GEMINI_MODEL.trim();
   }
-  return "gemini-2.0-flash";
+  // Use gemini-2.5-flash - latest stable model
+  return "gemini-2.5-flash";
+}
+
+function getModelEndpoint(model) {
+  // Handle different model name formats
+  if (model.startsWith("models/")) {
+    return model;
+  }
+  if (model.startsWith("gemini-")) {
+    return `models/${model}`;
+  }
+  return `models/${model}`;
 }
 
 export default {
@@ -63,10 +75,11 @@ export default {
     }
 
     const model = getModelFromPayload(payload, env);
+    const modelEndpoint = getModelEndpoint(model);
 
     try {
       const geminiRes = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent?key=${encodeURIComponent(env.GEMINI_API_KEY)}`,
+        `https://generativelanguage.googleapis.com/v1beta/${modelEndpoint}:generateContent?key=${encodeURIComponent(env.GEMINI_API_KEY)}`,
         {
           method: "POST",
           headers: {
